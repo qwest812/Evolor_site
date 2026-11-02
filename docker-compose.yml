@@ -1,0 +1,18 @@
+services:
+  site:
+    build: .
+    restart: always
+    environment:
+      # Домен сайта; DNS-запись A должна указывать на этот сервер
+      - SITE_DOMAIN=${SITE_DOMAIN:-evolor.tagumplay.com}
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:

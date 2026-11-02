@@ -1,10 +1,12 @@
 ---
-updated: 2026-10-23
+updated: 2026-11-02
 ---
 
-<!-- TODO: проверить с юристом; заполнить юрлицо, адрес и список SDK клиента (аналитика, реклама, крэш-репорты). -->
+This Privacy Policy explains how Iaroslav Rybachuk, an individual game developer publishing under the name Tagumplay ("we", "us"), collects, uses and protects information when you play Evolor (the "Game") and visit this website.
 
-This Privacy Policy explains how Tagumplay ("we", "us") collects, uses and protects information when you play Evolor (the "Game") and visit this website.
+## Who is responsible for your data
+
+The data controller is Iaroslav Rybachuk (Tagumplay), Kraków, Poland. Contact: [rybachuk.iaroslav@gmail.com](mailto:rybachuk.iaroslav@gmail.com).
 
 ## Information we collect
 
@@ -12,36 +14,49 @@ This Privacy Policy explains how Tagumplay ("we", "us") collects, uses and prote
 
 **Purchase data.** When you make an in-app purchase, we receive a purchase receipt from Google Play to verify it and deliver the item. We do not receive or store your payment card details.
 
-**Usage data.** We record in-game events (for example, tutorial steps, battles and purchases) and technical information such as app version and device model to understand how the Game is used, fix bugs and balance gameplay.
+**Usage data.** We record in-game events (for example, tutorial steps, battles and purchases) and technical information such as app version, device model, operating system and an app instance identifier to understand how the Game is used, fix bugs and balance gameplay.
 
-**Support requests.** If you contact us through the in-game feedback form or by email, we receive the information you provide, such as your email address, name, device model and message.
+**Crash reports.** If the Game crashes, we receive a technical report with the error details, device model, operating system version and app version.
+
+**Support requests.** If you contact us by email, we receive the information you provide, such as your email address, name, device model and message.
 
 **Communication with other players.** Interactions with other players, such as PvP battles, are processed on our servers to make these features work.
 
-## How we use information
+## How we use information and why
 
-- to provide the Game, save your progress and synchronize it between sessions;
-- to verify purchases and deliver purchased items;
-- to run multiplayer features such as PvP;
-- to detect cheating, fraud and abuse;
-- to analyse and improve the Game;
-- to respond to support requests.
+- to provide the Game, save your progress and synchronize it between sessions — *necessary to perform our agreement with you* (Art. 6(1)(b) GDPR);
+- to verify purchases and deliver purchased items — *performance of the agreement*, and keeping purchase records — *legal obligation* (Art. 6(1)(c) GDPR);
+- to run multiplayer features such as PvP — *performance of the agreement*;
+- to detect cheating, fraud and abuse — *our legitimate interest* in a fair and secure game (Art. 6(1)(f) GDPR);
+- to analyse and improve the Game and fix crashes — *our legitimate interest* in keeping the Game working and improving it;
+- to respond to support requests — *performance of the agreement* or *our legitimate interest*.
+
+We do not sell your personal data and do not use it for advertising.
 
 ## Third-party services
 
-We use Google Play to process payments. Google processes this data according to its own privacy policy. <!-- TODO: перечислить прочие SDK. -->
+We use the following services, which process data on our behalf or as independent controllers:
+
+- **Google Play** (Google Ireland Ltd.) — app distribution and payments;
+- **Google Firebase Analytics** (Google Ireland Ltd.) — usage statistics;
+- **Google Firebase Crashlytics** (Google Ireland Ltd.) — crash reports;
+- **Unity** (Unity Technologies) — the game engine, which may collect technical diagnostics about performance and errors.
+
+Google and Unity may process data outside the European Economic Area, including in the United States. Such transfers are protected by the EU–US Data Privacy Framework and/or the European Commission's Standard Contractual Clauses. See [Google's privacy policy](https://policies.google.com/privacy) and [Unity's privacy policy](https://unity.com/legal/game-player-and-app-user-privacy-policy).
 
 ## Data retention
 
-We keep your account data while your account is active. You can request deletion at any time — see [Delete account](/delete-account). Some data may be kept longer where required by law (for example, purchase records).
+We keep your account data while your account is active. You can request deletion at any time — see [Delete account](/delete-account); we delete the account within 30 days. Analytics data is kept for up to 14 months and crash reports for up to 90 days. Purchase records may be kept longer where required by law.
 
 ## Children
 
-The Game is not directed at children under 13 (or the minimum age in your country). If you believe a child has provided us with personal information, contact us and we will delete it.
+The Game is not directed at children under 13. In the European Economic Area, players under 16 may use the Game only with the consent of a parent or guardian. If you believe a child has provided us with personal information without such consent, contact us and we will delete it.
 
 ## Your rights
 
-Depending on where you live, you may have the right to access, correct or delete your personal data, or object to its processing. To exercise these rights, contact us at the email below.
+If you are in the European Economic Area or the United Kingdom, you have the right to access your personal data, correct it, delete it, restrict or object to its processing (including processing based on our legitimate interests), and receive it in a portable format. To exercise these rights, email us at the address below; we will answer within one month.
+
+You also have the right to lodge a complaint with a data protection authority — in Poland, the President of the Personal Data Protection Office (UODO, [uodo.gov.pl](https://uodo.gov.pl)), or the authority in your country of residence.
 
 ## Changes
 
@@ -49,4 +64,4 @@ We may update this policy from time to time. The date of the latest update is sh
 
 ## Contact
 
-Tagumplay — <!-- TODO: юрлицо и адрес --> support@tagumplay.com
+Iaroslav Rybachuk (Tagumplay), Kraków, Poland — [rybachuk.iaroslav@gmail.com](mailto:rybachuk.iaroslav@gmail.com)

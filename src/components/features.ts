@@ -41,9 +41,9 @@ export const screenshots: ImageMetadata[] = [
   teamImg, starterImg, ghostTownImg, key3, valleyImg,
 ];
 
-// Монстры для галереи на главной: имя = имя спрайта в игре.
+// Монстры для галереи на главной (10 штук — два ряда по 5): имя = имя спрайта в игре.
 const monsterFiles = import.meta.glob<{ default: ImageMetadata }>('../assets/monsters/*.png', { eager: true });
-const monsterOrder = ['Ignibite', 'Seedly', 'Frostwolf', 'Blazebraze', 'Petalume', 'Tidebreaker', 'Wolpix', 'Noctabat', 'Taranthex', 'SunflowerFairy', 'Scorviper', 'Kingcrab', 'Mistil', 'Umbrawl', 'Lumip', 'Pyroclash'];
+const monsterOrder = ['Ignibite', 'Seedly', 'Frostwolf', 'Blazebraze', 'Tidebreaker', 'Noctabat', 'Taranthex', 'Scorviper', 'Mistil', 'Lumip'];
 export const monsters = monsterOrder.map((name) => ({
   name: name.replace(/([a-z])([A-Z])/g, '$1 $2'),
   image: monsterFiles[`../assets/monsters/${name.toLowerCase()}.png`].default,

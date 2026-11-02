@@ -58,3 +58,20 @@ draft: false         # true — не публиковать
 - [ ] логотип, ключевой арт (вместо `HeroArt.astro`), скриншоты (вместо заглушек на главной), картинки фич на странице игры
 - [ ] Privacy Policy и Terms проверить юристом: юрлицо, адрес, список SDK клиента (см. TODO в `src/legal/*.md`)
 - [ ] OG-картинка для превью в соцсетях
+
+## Деплой на свой сервер
+
+Нужны Docker и свободные порты 80 и 443. DNS-запись `A` для `evolor.tagumplay.com` должна указывать на IP сервера.
+
+```sh
+git clone git@github.com:qwest812/Evolor_site.git && cd Evolor_site
+docker compose up -d --build
+```
+
+Caddy сам получит и будет продлевать HTTPS-сертификат. Обновление сайта: `git pull && docker compose up -d --build`.
+Другой домен: `SITE_DOMAIN=example.com docker compose up -d --build`.
+
+Ссылки для Google Play Console:
+- Privacy policy — https://evolor.tagumplay.com/privacy/
+- Account deletion — https://evolor.tagumplay.com/delete-account/
+- Terms of Use — https://evolor.tagumplay.com/terms/
