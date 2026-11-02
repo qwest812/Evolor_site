@@ -45,20 +45,6 @@ draft: false         # true — не публиковать
 Текст в Markdown.
 ```
 
-## Деплой (Cloudflare Pages)
-
-1. Запушить репо на GitHub/GitLab.
-2. Cloudflare → Workers & Pages → Create → Pages → подключить репо.
-3. Build command `npm run build`, output `dist`, переменная `NODE_VERSION=22`.
-4. Custom domains → `evolor.tagumplay.com` (CNAME на `<project>.pages.dev`).
-
-## TODO перед релизом
-
-- [ ] реальные ссылки на Google Play, App Store, Discord и email в `src/config.ts`
-- [ ] логотип, ключевой арт (вместо `HeroArt.astro`), скриншоты (вместо заглушек на главной), картинки фич на странице игры
-- [ ] Privacy Policy и Terms проверить юристом: юрлицо, адрес, список SDK клиента (см. TODO в `src/legal/*.md`)
-- [ ] OG-картинка для превью в соцсетях
-
 ## Деплой на свой сервер
 
 Нужны Docker и свободные порты 80 и 443. DNS-запись `A` для `evolor.tagumplay.com` должна указывать на IP сервера.
@@ -75,3 +61,9 @@ Caddy сам получит и будет продлевать HTTPS-серти�
 - Privacy policy — https://evolor.tagumplay.com/privacy/
 - Account deletion — https://evolor.tagumplay.com/delete-account/
 - Terms of Use — https://evolor.tagumplay.com/terms/
+
+## TODO
+
+- [ ] выложить сайт на сервер (см. выше) и проверить ссылки в Play Console
+- [ ] ссылка на App Store в `src/config.ts` после релиза на iOS
+- [ ] убрать из сборки игры лишние разрешения (`ACCESS_COARSE_LOCATION`, `BLUETOOTH*`, `INSTALL_PACKAGES`, `DUMP` — их приносит `play-services-nearby`)
