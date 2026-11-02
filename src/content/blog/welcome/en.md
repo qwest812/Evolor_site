@@ -10,7 +10,7 @@ We have launched the official Evolor website. Here you will find everything abou
 
 ## What's on the site
 
-- **The Game** — an overview of the main mechanics: catching, evolution, battles, PvP, breeding and quests.
+- **The Game** — an overview of the main mechanics: catching, evolution, battles, PvP, quests and outfits.
 - **News** — this blog. Patch notes, events and development notes will appear here.
 - **Company** — a few words about our studio and how to contact us.
 

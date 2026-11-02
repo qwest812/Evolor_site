@@ -16,7 +16,7 @@ You agree not to:
 
 - cheat, use bots, exploits, modified clients or any unauthorized software;
 - interfere with the servers or other players' experience;
-- abuse, harass or deceive other players, including in breeding offers and trades;
+- abuse, harass or deceive other players, including in PvP duels;
 - use offensive nicknames;
 - sell or transfer in-game items or accounts for real money outside the Game.
 
