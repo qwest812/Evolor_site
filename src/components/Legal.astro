@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import type { Lang } from '../i18n/ui';
+import { t, formatDateShort } from '../i18n/utils';
+
+interface Props { lang: Lang; title: string; updated: string }
+const { lang, title, updated } = Astro.props;
+const d = t(lang);
+---
+<Base lang={lang} title={title}>
+  <section class="section">
+    <div class="container prose">
+      {lang !== 'en' && <div class="notice">{d.legal.englishOnly}</div>}
+      <h1>{title}</h1>
+      <p class="post-meta">{d.legal.updated}: {formatDateShort(updated, lang)}</p>
+      <div lang="en"><slot /></div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,12 @@
+---
+import Legal from '../../components/Legal.astro';
+import { Content, frontmatter } from '../../legal/privacy.md';
+import type { Lang } from '../../i18n/ui';
+import { t, langPaths } from '../../i18n/utils';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+---
+<Legal lang={lang} title={t(lang).legal.privacy} updated={frontmatter.updated}>
+  <Content />
+</Legal>

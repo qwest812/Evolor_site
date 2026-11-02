@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import icon from '../assets/game/icon.png';
+---
+<div class="hero-art">
+  <div class="glow"></div>
+  <Image class="float" src={icon} alt="Evolor" width={460} loading="eager" />
+  <span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="orb o4"></span>
+</div>
+<style>
+  .hero-art { display: grid; place-items: center; }
+  .glow { position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, rgb(255 160 60 / .35), transparent 65%); }
+  .float {
+    position: relative; width: 78%; height: auto; border-radius: 22%;
+    box-shadow: 0 30px 60px rgb(0 0 0 / .45); animation: float 4s ease-in-out infinite;
+  }
+  .orb { position: absolute; border-radius: 50%; background: #ffb547; animation: twinkle 3s ease-in-out infinite; }
+  .o1 { width: 20px; height: 20px; left: 6%; top: 22%; }
+  .o2 { width: 14px; height: 14px; right: 6%; top: 14%; animation-delay: .7s; }
+  .o3 { width: 18px; height: 18px; right: 4%; bottom: 26%; background: #7cf5c4; animation-delay: 1.4s; }
+  .o4 { width: 12px; height: 12px; left: 4%; bottom: 20%; background: #3a8bff; animation-delay: 2.1s; }
+  @keyframes float { 50% { transform: translateY(-12px); } }
+  @keyframes twinkle { 50% { opacity: .3; } }
+  @media (prefers-reduced-motion: reduce) { .float, .orb { animation: none; } }
+</style>

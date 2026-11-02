@@ -1,0 +1,34 @@
+---
+import { render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../../layouts/Base.astro';
+import { defaultLang, langs, type Lang } from '../../../i18n/ui';
+import { t, localePath } from '../../../i18n/utils';
+import { getPosts, formatDate, type Post } from '../../../i18n/blog';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const lang of langs) {
+    for (const post of await getPosts(lang)) {
+      paths.push({ params: { lang: lang === defaultLang ? undefined : lang, slug: post.slug }, props: { lang, post } });
+    }
+  }
+  return paths;
+}
+
+const { lang, post } = Astro.props as { lang: Lang; post: Post };
+const d = t(lang);
+const { Content } = await render(post);
+---
+<Base lang={lang} title={post.data.title} description={post.data.description}>
+  <article class="section">
+    <div class="container prose">
+      <a class="back" href={localePath(lang, '/blog')}>← {d.blog.back}</a>
+      {!post.translated && <div class="notice">{d.blog.notTranslated}</div>}
+      <h1 lang={post.translated ? lang : defaultLang}>{post.data.title}</h1>
+      <p class="post-meta"><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time></p>
+      {post.data.cover && <Image src={post.data.cover} alt="" width={1280} />}
+      <div lang={post.translated ? lang : defaultLang}><Content /></div>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../config';
+import type { Lang } from '../../i18n/ui';
+import { t, langPaths } from '../../i18n/utils';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+---
+<Base lang={lang} title={d.about.title}>
+  <section class="section">
+    <div class="container prose">
+      <h1>{d.about.title}</h1>
+      <p class="lead">{d.about.lead}</p>
+      {d.about.body.map((p) => <p>{p}</p>)}
+      <h2>{d.about.contactTitle}</h2>
+      <p>{d.about.contactText}</p>
+      <p style="display: flex; gap: 12px; flex-wrap: wrap">
+        <a class="btn" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        <a class="btn btn-ghost" href={SITE.discord} target="_blank" rel="noopener">Discord</a>
+      </p>
+    </div>
+  </section>
+</Base>

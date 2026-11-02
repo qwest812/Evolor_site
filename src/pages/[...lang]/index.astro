@@ -1,0 +1,91 @@
+---
+import Base from '../../layouts/Base.astro';
+import HeroArt from '../../components/HeroArt.astro';
+import StoreButtons from '../../components/StoreButtons.astro';
+import PostCard from '../../components/PostCard.astro';
+import { Image } from 'astro:assets';
+import { featureStyle, screenshots, monsters } from '../../components/features';
+import { featureKeys, type Lang } from '../../i18n/ui';
+import { t, localePath, langPaths } from '../../i18n/utils';
+import { getPosts } from '../../i18n/blog';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const posts = (await getPosts(lang)).slice(0, 3);
+---
+<Base lang={lang}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="tag">{d.hero.tagline}</span>
+        <h1>{d.hero.title}</h1>
+        <p>{d.hero.subtitle}</p>
+        <StoreButtons lang={lang} />
+      </div>
+      <HeroArt />
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="center">{d.home.featuresTitle}</h2>
+      <div class="grid" style="margin-top: 36px">
+        {featureKeys.map((k) => (
+          <a class="card" href={localePath(lang, `/game#${k}`)} style="color: inherit; text-decoration: none">
+            {featureStyle[k].image && <Image class="card-img" src={featureStyle[k].image} alt="" width={480} />}
+            <div class="icon"><Image src={featureStyle[k].icon} alt="" width={64} /></div>
+            <h3>{d.features[k].title}</h3>
+            <p>{d.features[k].short}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="center">{d.home.monstersTitle}</h2>
+      <div class="center"><p class="lead">{d.home.monstersText}</p></div>
+      <div class="monsters">
+        {monsters.map((m) => (
+          <figure class="monster">
+            <Image src={m.image} alt={m.name} width={240} />
+            <figcaption>{m.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="center">{d.home.screenshotsTitle}</h2>
+      <div class="shots" style="margin-top: 36px">
+        {screenshots.map((img, i) => <div class="shot"><Image src={img} alt={`${d.home.screenshotsTitle} ${i + 1}`} width={800} /></div>)}
+      </div>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section section-alt">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 28px">
+          <h2 style="margin: 0">{d.home.latestNews}</h2>
+          <a href={localePath(lang, '/blog')} style="font-weight: 700">{d.home.allNews} →</a>
+        </div>
+        <div class="posts">{posts.map((post) => <PostCard post={post} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2>{d.home.communityTitle}</h2>
+        <p>{d.home.communityText}</p>
+        <div class="center"><StoreButtons lang={lang} discord /></div>
+      </div>
+    </div>
+  </section>
+</Base>

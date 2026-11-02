@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../config';
+import type { Lang } from '../../i18n/ui';
+import { t, langPaths } from '../../i18n/utils';
+
+export const getStaticPaths = langPaths;
+const { lang } = Astro.props as { lang: Lang };
+const d = t(lang);
+const mailto = `mailto:${SITE.email}?subject=${encodeURIComponent(`${d.del.emailSubject} — Evolor`)}`;
+---
+<Base lang={lang} title={d.del.title}>
+  <section class="section">
+    <div class="container prose">
+      <h1>{d.del.title}</h1>
+      <p class="lead">{d.del.intro}</p>
+      <ol class="steps">{d.del.steps.map((s) => <li>{s}</li>)}</ol>
+      <p><a class="btn" href={mailto}>{d.del.button}</a></p>
+      <h2>{d.del.dataTitle}</h2>
+      <p>{d.del.dataText}</p>
+    </div>
+  </section>
+</Base>

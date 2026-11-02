@@ -1,0 +1,17 @@
+---
+import type { Post } from '../i18n/blog';
+import { formatDate } from '../i18n/blog';
+import { t, localePath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+import { Image } from 'astro:assets';
+
+interface Props { post: Post; lang: Lang }
+const { post, lang } = Astro.props;
+---
+<a class="card post-card" href={localePath(lang, `/blog/${post.slug}`)}>
+  <div class="cover">{post.data.cover && <Image src={post.data.cover} alt="" width={640} />}</div>
+  <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, lang)}</time>
+  <h3>{post.data.title}</h3>
+  <p>{post.data.description}</p>
+  <span class="more">{t(lang).blog.readMore} →</span>
+</a>
