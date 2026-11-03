@@ -4,3 +4,4 @@ dist
 .git
 *.aab
 *.apk
+certbot

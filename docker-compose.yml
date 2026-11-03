@@ -1,18 +1,19 @@
+# Сайт за nginx магазина (контейнер erbology_nginx, сеть erb-network).
+# Домен и SSL — на nginx: deploy/nginx/*.conf, сертификат — deploy/ssl.sh.
 services:
   site:
     build: .
+    container_name: evolor-site
     restart: always
     environment:
-      # Домен сайта; DNS-запись A должна указывать на этот сервер
-      - SITE_DOMAIN=${SITE_DOMAIN:-evolor.tagumplay.com}
-    ports:
-      - 80:80
-      - 443:443
-      - 443:443/udp
+      # :80 — Caddy отдаёт обычный HTTP, наружу не публикуется
+      - SITE_DOMAIN=:80
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      # Файлы проверки Let's Encrypt (их кладёт certbot из deploy/ssl.sh)
+      - ./certbot/www:/srv/.well-known/acme-challenge:ro
+    networks:
+      - erb-network
 
-volumes:
-  caddy_data:
-  caddy_config:
+networks:
+  erb-network:
+    external: true

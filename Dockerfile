@@ -6,7 +6,7 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Раздача через Caddy: HTTPS-сертификат Let's Encrypt он получает и продлевает сам
+# Раздача статики через Caddy (за nginx магазина, см. deploy/nginx/)
 FROM caddy:2-alpine
 COPY deploy/Caddyfile /etc/caddy/Caddyfile
 COPY --from=build /app/dist /srv

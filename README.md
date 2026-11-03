@@ -45,17 +45,21 @@ draft: false         # true — не публиковать
 Текст в Markdown.
 ```
 
-## Деплой на свой сервер
+## Деплой на сервер
 
-Нужны Docker и свободные порты 80 и 443. DNS-запись `A` для `evolor.tagumplay.com` должна указывать на IP сервера.
+Сайт работает за nginx магазина (контейнер `erbology_nginx`, сеть `erb-network`), SSL — Let's Encrypt.
+DNS (ukraine.com.ua): запись `A` `evolor` → `168.119.95.236`, без `AAAA` для `evolor`.
 
 ```sh
 git clone git@github.com:qwest812/Evolor_site.git && cd Evolor_site
 docker compose up -d --build
+deploy/ssl.sh init     # конфиг в conf.d nginx магазина + сертификат + HTTPS
 ```
 
-Caddy сам получит и будет продлевать HTTPS-сертификат. Обновление сайта: `git pull && docker compose up -d --build`.
-Другой домен: `SITE_DOMAIN=example.com docker compose up -d --build`.
+Продление сертификата — cron раз в день:
+`0 4 * * * cd /путь/к/Evolor_site && deploy/ssl.sh renew`
+
+Обновление сайта: `git pull && docker compose up -d --build`.
 
 Ссылки для Google Play Console:
 - Privacy policy — https://evolor.tagumplay.com/privacy/
