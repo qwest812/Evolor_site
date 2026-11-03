@@ -52,6 +52,8 @@ DNS (ukraine.com.ua): запись `A` `evolor` → `168.119.95.236`, без `AA
 
 ```sh
 git clone git@github.com:qwest812/Evolor_site.git && cd Evolor_site
+# имя сети nginx магазина (на проде может быть с префиксом проекта)
+echo "ERB_NETWORK=$(docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{$k}}{{end}}' erbology_nginx)" > .env
 docker compose up -d --build
 deploy/ssl.sh init     # конфиг в conf.d nginx магазина + сертификат + HTTPS
 ```

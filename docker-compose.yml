@@ -16,4 +16,7 @@ services:
 
 networks:
   erb-network:
+    # Реальное имя сети nginx магазина (часто с префиксом проекта) — в .env:
+    # ERB_NETWORK=$(docker inspect -f '{{range $k, $v := .NetworkSettings.Networks}}{{$k}} {{end}}' erbology_nginx)
+    name: ${ERB_NETWORK:-erb-network}
     external: true
