@@ -10,7 +10,7 @@ services:
       - SITE_DOMAIN=:80
     volumes:
       # Файлы проверки Let's Encrypt (их кладёт certbot из deploy/ssl.sh)
-      - ./certbot/www:/srv/.well-known/acme-challenge:ro
+      - ./certbot/www:/acme:ro
     networks:
       - erb-network
 
